@@ -1,0 +1,334 @@
+{
+	"info": {
+		"_postman_id": "98b8d4de-2c06-416f-9ded-840848a99ea2",
+		"name": "Flask Stock Management",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36297680"
+	},
+	"item": [
+		{
+			"name": "User Registration",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"testuser\",\n\t\"email\": \"testuser@example.com\",\n\t\"password\": \"testpassword\"\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/register",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\": \"testuser1@example.com\",\n\t\"password\": \"testuser1\"\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/login",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Protected Route",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcyMDExNjM3NywianRpIjoiMGJkYWVkZDMtZjdlMy00MTczLTg3YTgtZWY0ZDEyMWJiYmIzIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MiwibmJmIjoxNzIwMTE2Mzc3LCJjc3JmIjoiZjE3MWYzMmItMTc4OS00YWM0LTk3NzItNjViYzY4YjlhOTQwIiwiZXhwIjoxNzIwMTE3Mjc3fQ.uXQh2VKCQLtUQX_v8sWpdOThMtN2yg9dVWTiQ3B7xa8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{access_token}}"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:5000/protected",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"protected"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Stock",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcyMDExNjM3NywianRpIjoiMGJkYWVkZDMtZjdlMy00MTczLTg3YTgtZWY0ZDEyMWJiYmIzIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MiwibmJmIjoxNzIwMTE2Mzc3LCJjc3JmIjoiZjE3MWYzMmItMTc4OS00YWM0LTk3NzItNjViYzY4YjlhOTQwIiwiZXhwIjoxNzIwMTE3Mjc3fQ.uXQh2VKCQLtUQX_v8sWpdOThMtN2yg9dVWTiQ3B7xa8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{access_token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"product_name\": \"Product A\",\n\t\"quantity\": 100,\n\t\"alarm_at\": 10,\n\t\"price\": 9.99,\n\t\"image_path\": \"path/to/image.jpg\"\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/stock",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"stock"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit Stock",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcyMDExNjM3NywianRpIjoiMGJkYWVkZDMtZjdlMy00MTczLTg3YTgtZWY0ZDEyMWJiYmIzIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MiwibmJmIjoxNzIwMTE2Mzc3LCJjc3JmIjoiZjE3MWYzMmItMTc4OS00YWM0LTk3NzItNjViYzY4YjlhOTQwIiwiZXhwIjoxNzIwMTE3Mjc3fQ.uXQh2VKCQLtUQX_v8sWpdOThMtN2yg9dVWTiQ3B7xa8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{access_token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"product_name\": \"Product A Updated\",\n\t\"quantity\": 150,\n\t\"alarm_at\": 15,\n\t\"price\": 10.99,\n\t\"image_path\": \"path/to/updated_image.jpg\"\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/stock/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"stock",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Soft Delete Stock",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{access_token}}"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:5000/stock/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"stock",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Stock",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcyMDExNjc1OSwianRpIjoiMDBmMDk3OTMtYzQ5ZS00MzlmLTgzODgtYWY3NzU2NzVhNjdlIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MiwibmJmIjoxNzIwMTE2NzU5LCJjc3JmIjoiOWY3Y2FlNDktMDcxZi00MzJhLWI1MTYtOWNhYTRlMDJjZDE5IiwiZXhwIjoxNzIwMTE3NjU5LCJ1c2VybmFtZSI6InRlc3R1c2VyMSIsInJvbGUiOiJhZG1pbiJ9.LRc1IsoGd8vHIXDMNfXw1jm775ZG4G592EJrgwJI4_0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{access_token}}"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:5000/stock",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"stock"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Products List",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcyMDExNzM4NSwianRpIjoiOGYzZGZjNWMtNDIxOS00ZWRhLTlmMmItZjMzNmI5NjEwMmY5IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MiwibmJmIjoxNzIwMTE3Mzg1LCJjc3JmIjoiNzIwOTBkYjEtMGIzMC00NjU0LTllZTktMGU3ODVmMDIwZWNjIiwiZXhwIjoxNzIwMTE4Mjg1LCJ1c2VybmFtZSI6InRlc3R1c2VyMSIsInJvbGUiOiJhZG1pbiJ9.9b3CCHzPs4L_SZ3em9uDLSfH6RGcfJxbHhbnV6ghOy8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer <your_access_token>"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5000/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "purchase",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcyMDExNzM4NSwianRpIjoiOGYzZGZjNWMtNDIxOS00ZWRhLTlmMmItZjMzNmI5NjEwMmY5IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MiwibmJmIjoxNzIwMTE3Mzg1LCJjc3JmIjoiNzIwOTBkYjEtMGIzMC00NjU0LTllZTktMGU3ODVmMDIwZWNjIiwiZXhwIjoxNzIwMTE4Mjg1LCJ1c2VybmFtZSI6InRlc3R1c2VyMSIsInJvbGUiOiJhZG1pbiJ9.9b3CCHzPs4L_SZ3em9uDLSfH6RGcfJxbHhbnV6ghOy8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer <your_access_token>"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5000/purchase/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"purchase",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
