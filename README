@@ -1,2 +1,59 @@
-pip install -r requirements.txt
+# Project Name
 
+## Description
+
+Brief description of your project.
+
+## Table of Contents
+
+- [Project Name](#project-name)
+  - [Description](#description)
+  - [Table of Contents](#table-of-contents)
+  - [Getting Started](#getting-started)
+    - [Prerequisites](#prerequisites)
+    - [Installation](#installation)
+    - [Setting Up MySQL Database](#setting-up-mysql-database)
+    - [Running the Application](#running-the-application)
+
+
+## Getting Started
+
+### Prerequisites
+
+- Python 
+- MySQL Server 
+
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/Piyush911/inventry
+
+
+2. Create a virtual environment named venv:
+
+   ```bash
+   On Windows:  venv\Scripts\activate
+
+   
+
+3. Install required packages using pip:
+
+   ```bash
+   pip install -r requirements.txt
+
+
+4. Running the Application
+    ```bash
+   Initialize the database:
+   flask db init
+    flask db migrate -m "Initial migration"
+    flask db upgrade
+
+
+
+1.Run the Flask application:
+
+   ```bash
+   flask run
